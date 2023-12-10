@@ -1,0 +1,113 @@
+ 
+School of Computer Sciences 
+ 
+CAT201 Integrated Software 
+Development Workshop 
+    
+ASSIGNMENT I : Integrated Software Development Workshop  2023/2024  
+Objectives  
+• Construct a software using WEB programming language with user-
+friendly graphical user interface in a team. 
+Specification  
+Setup a Linux Apache webserver. Create a web application to allow users to 
+convert a .pdf file to .txt file. The php webpage will call a Java application. The 
+application uses the Java PDFBox library (https://pdfbox.apache.org/) to 
+convert the txt file to pdf and pdf to txt. The web pages/forms should not be 
+created using WYSIWYG text editor or from ready-made template. 
+Mark distribution: 
+Web server setup: 20% 
+GUI (HTML+CSS): 30% 
+Sending file to server and retrieval of CSV through a link: 20% 
+Convert txt to pdf and pdf to txt in server: 30% 
+ 
+Due Date: 10 December 2023 
+Submission format 
+All codes (HTML, CSS, PHP, Java and scripts) + 5 mins (max) video recording 
+of running the web application.  
+Video recording: Demonstrate that the webpage is running from docker. Show 
+the directory containing the txt/pdf file after being uploaded. Show the directory 
+containing the pdf/txt file before and after being converted. Demonstrate the 
+conversion twice. 
+Notes 
+This assignment is to be done by 3-4 students in a group. Any part of the 
+program submitted by a student/group for the evaluation must not be 
+shared with another student/group. Anyone caught copying or let his/her 
+program to be copied will automatically get zero mark for the assignment. 
+References taken from any sources must be quoted and declared. Group 
+members that do not contribute will get zero. 
+  
+ 
+School of Computer Sciences 
+ 
+CAT201 Integrated Software 
+Development Workshop 
+    
+Assignment Assessment Rubric  
+  Excellent (80-100%) Good (65-79%) Moderate (40-64%) Poor (0-39%) Total 
+Part 1: 
+Webserver 
+(20%) 
+Webserver is 
+installed and run 
+properly in Linux. 
+Webserver is 
+installed and run 
+properly in 
+Windows. - No webserver.   
+Part 2: GUI 
+(30%) 
+GUI is user friendly 
+and attractive. 
+GUI is user friendly 
+but not attractive. 
+GUI is not user 
+friendly and 
+attractive. 
+GUI is 
+incomplete.   
+Part 3: 
+Post (20%) 
+Can send one or 
+more txt/pdf files 
+to server from 
+website and store 
+in the local 
+directory. 
+Can send one 
+txt/pdf file to 
+server from 
+website and store 
+in the local 
+directory. 
+It has the function 
+to send file, but 
+does not work 
+properly. 
+No function to 
+send txt/pdf 
+file to server 
+from website.  
+Part 4: 
+Convert 
+(30%) 
+Use the given 
+library to convert 
+txt to pdf and pdf 
+to txt for one or 
+more file at a single 
+time. 
+Use the given 
+library to convert 
+txt to pdf and pdf 
+to txt for only one 
+file at a time. 
+Occasionally does 
+not convert able to 
+convert file. 
+ 
+Cannot 
+convert file at 
+all.  
+    Total  
+ 
+ 

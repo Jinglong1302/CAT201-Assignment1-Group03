@@ -1,0 +1,1251 @@
+School of Computer Sciences
+Universiti Sains Malaysia
+CSE241 - FOUNDATIONS OF SOFTWARE ENGINEERING
+Academic Session 2023/2024, Semester 1
+Submission Date: 6th December 2023
+Report 1 Submission
+Project Title: Heng Heng Traffic
+Group 1
+Student Name Matrics No School Project Role
+HONG JINGLONG 164243 Computer Sciences Project Director
+EDWIN CHIA YI YANG 163904 Computer Sciences Business Analyst
+ENG JUN XIANG 163604 Computer Sciences Business Analyst
+NG CHEN YANG 164077 Computer Sciences Software Engineer
+ONG HSIEN HUNG 164848 Computer Sciences Software Engineer
+Table of contents
+Table of contents....................................................................................................................... 1
+List of Figures........................................................................................................................ 3
+List of Tables.......................................................................................................................... 4
+1. Project Background...........................................................................................................6
+1.1 Problem Background......................................................................................................6
+1.2 Organization Background...............................................................................................8
+1.3 System overview........................................................................................................ 10
+1.3.1 System objectives................................................................................................10
+1.3.2 System module breakdown................................................................................. 10
+1.4 Project Planning............................................................................................................11
+1.4.1 Project Team Introduction................................................................................... 11
+1.4.2 Project Team Involvement...................................................................................14
+2. System Requirements.................................................................................................. 18
+2.1 Functional requirements – User Stories....................................................................... 18
+2.1.1 Module 1: Car built in Real Time Location Service (GPS)................................ 18
+2.1.2 Module 2: Carpooling System.............................................................................21
+2.1.3 Module 3: Dynamic Toll Price............................................................................ 24
+2.1.4 Module 4: Smart Traffic Monitoring...................................................................27
+2.1.5 Module 5: Connection with public transportation...............................................30
+2.2 Functional requirements – Use Cases....................................................................... 33
+2.2.1 Use Case list........................................................................................................ 33
+Module 1: Car built in real time location service (GPS)..............................................33
+Module 2: Carpooling System......................................................................................34
+Module 3: Dynamic Toll Price..................................................................................... 35
+Module 4: Smart Traffic Monitoring............................................................................36
+Module 5: Connection with public transportation........................................................38
+2.2.2 Use case diagram.................................................................................................40
+Module 1:Real time location service system (GPS).....................................................40
+Module 2: Carpooling System......................................................................................41
+Foundations of Software Engineering Page 1
+Module 3: Dynamic Toll Price..................................................................................... 42
+Module 4: Smart Traffic Monitoring............................................................................43
+Module 5: Connection with public transportation........................................................44
+2.3 Non-functional requirements........................................................................................45
+3. System Architecture and Design.................................................................................... 47
+3.1 Architectural design.................................................................................................... 47
+3.1.1 Conceptual view..................................................................................................47
+3.1.2 Process view........................................................................................................48
+Module 1: Real time location service (GPS)................................................................48
+Module 2: Carpooling System......................................................................................50
+Module 3: Dynamic Toll Price..................................................................................... 53
+Module 4: Smart Traffic Monitoring System............................................................... 55
+Module 5: Connection with Public Transportation...................................................... 57
+References............................................................................................................................... 59
+Foundations of Software Engineering Page 2
+List of Figures
+Figure 1 Figure of System Module Breakdown........................................................................ 9
+Figure 2 Group Photo.............................................................................................................10
+Figure 3 Hong Jinglong.......................................................................................................... 11
+Figure 4 Edwin Chia Yi Yang..................................................................................................11
+Figure 5 Eng Jun Xiang..........................................................................................................11
+Figure 6 Ong Hsien Hung...................................................................................................... 12
+Figure 7 Ng Chen Yang..........................................................................................................12
+Figure 8: Use Case Diagram of Module 1- Real time location service system (GPS).......... 39
+Figure 9: Use Case Diagram of Module 2- Carpooling System............................................. 40
+Figure 10: Use Case Diagram of Module 3- Dynamic Toll Price System............................... 41
+Figure 11: Use Case Diagram of Module 4: Smart Traffic Monitoring....................................42
+Figure 12: Use Case Diagram of Module 5: System of Connection with Public Transportation
+43
+Figure 13: Conceptual View of The System...........................................................................46
+Figure 14: Process View of Real time Location Service Module (GPS).................................47
+Figure 15: Process View of Carpooling System.....................................................................50
+Figure 16: Process View of Dynamic Toll Price Module.........................................................52
+Figure 17: Process View of Smart Traffic Monitoring System................................................ 55
+Figure 18: Process View of Connection with Public Transportation Module.......................... 56
+Foundations of Software Engineering Page 3
+List of Tables
+Table of contents....................................................................................................................1
+1. Project Background........................................................................................................ 8
+Table 1.1 Table of biography of group member................................................................15
+Table 1.2 Table of meeting’s method................................................................................16
+Table 1.3 Table of attendance.......................................................................................... 17
+Table 1.4 Table of scheduled meeting..............................................................................18
+Table 1.5 Table of role of each member........................................................................... 19
+2. System Requirements.................................................................................................. 20
+Table 2.1.1 User story of tracking accurate location of vehicle (driver)............................20
+Table 2.1.2 User story of detection of reckless drivers and giving them signals (driver)..20
+Table 2.1.3 User story of driver can ask for rescue by providing the accurate location
+(driver).............................................................................................................................. 21
+Table 2.1.4 User story of driver can report traffic incidents or road hazards to improve
+traffic information (driver)................................................................................................. 21
+Table 2.1.5 User story of government agencies accessing records and giving summons
+for reckless drivers (law enforcement officers).................................................................22
+Table 2.1.6 User story of government agencies accessing records and analysing traffic
+conditions (traffic management officer)............................................................................ 23
+Table 2.2.1 User story of Dynamic Carpool Matching (Driver & Passenger)....................23
+Table 2.2.2 User story of Viewing Rating (Driver & Passenger).......................................24
+Table 2.2.3 User story of Request for emergency assistant (Driver & Passenger).......... 24
+Table 2.2.4 User story of Efit Route Information(Driver & Passenger).............................24
+Table 2.2.5 User story of Edit Route Preference (Driver & Passenger)........................... 25
+Table 2.2.6 User story of Real-time Traffic Update (Driver & Passenger)........................25
+Table 2.3.1 User story of real-time toll prices (commuter)................................................26
+Table 2.3.2 User story of dynamic toll pricing adjustment (local government officer)......26
+Table 2.3.3 User story of historical toll price data (city planner)......................................27
+Table 2.3.4 User story of toll price prediction (commuter)................................................ 27
+Table 2.3.5 User story of customised toll notifications (commuter).................................. 28
+Table 2.4.1 User story of real-time traffic data collection (traffic officer)...........................29
+Table 2.4.2 User story of traffic light optimization (traffic officer)......................................29
+Foundations of Software Engineering Page 4
+Table 2.4.3 User story of emergency response integration (emergency response
+coordinators).................................................................................................................... 30
+Table 2.4.4 User story of historical data analysis (traffic analyst).....................................30
+Table 2.4.5 User story of alerts and notifications (user)................................................... 31
+Table 2.4.6 User story of mobile access for on-the-go monitoring (traffic officer)............ 31
+Table 2.5.1 User story of sending notification to driver (user).......................................... 32
+Table 2.5.2 User story of Request Special Assistance (user)......................................... 32
+Table 2.5.3 User story of Enable Real-Time Monitoring of Bus Location (user)..............33
+Table 2.5.4 User story of Purchase and Display Digital Tickets (user).............................34
+Table 2.5.5 User story of Access Offline Bus Informations (driver).................................. 34
+Table 2.5.6 User story of Receive Passenger Notifications (driver)................................. 34
+Table 2.6.1 Table of use case list for Module 1................................................................ 35
+Table 2.6.2 Table of use case list for Module 2................................................................ 37
+Table 2.6.3 Table of use case list for Module 3................................................................ 38
+Table 2.6.4 Table of use case list for Module 4................................................................ 39
+Table 2.6.5 Table of use case list for Module 5................................................................ 41
+Foundations of Software Engineering Page 5
+1. Project Background
+1.1 Problem Background
+Sustainable Development Goal (SDG) 11 stands as a crucial objective, aiming to create cities
+and communities that are inclusive, safe, resilient, and sustainable (Our World in Data
+Team, 2023). Despite this aspirational goal, Penang Island grapples with persistent challenges
+in realizing SDG 11, predominantly rooted in transportation issues. The ramifications of
+insufficient transportation infrastructure are varied, encompassing concerns about road safety,
+congestion during peak hours, and the environmental impact resulting from individual
+commuting choices (Martyn de Kuyer, 2023).
+The difficulties in Penang's transportation are highlighted by alarming statistics and expert
+opinions. The Penang Police Chief, Datuk Mohd Shuhaily Mohd Zain, underscores the low
+awareness of car-sharing among Penangites as a significant contributor to severe traffic jams.
+A striking revelation reveals that seven out of ten vehicles on the island are occupied by a
+single individual, indicating a lack of engagement in communal transportation initiatives.
+Moreover, data from the Penang Institute accentuates the strain on the island's demographic.
+The population has surged to 1.6 million, resulting in an escalated people-to-transportation
+ratio from 1:1.17 in 2008 to 1:1.39 in 2014. This surge implies that nearly every Penangite
+owns at least one form of transportation, exacerbating traffic challenges. Projections for 2022
+suggest a concerning trend where most families will possess at least two cars, intensifying the
+issue. (Keoh, N. N, 2023)
+An exhaustive report from the Penang Institute in 2014 delves into the underutilization of
+public transportation during peak hours. Surprisingly, only 11% of Penangites opt for
+public transportation from 7:00 am to 9:00 am, with a mere 3% choosing public buses. This
+data underscores the overwhelming reliance on private vehicles, reaching up to 89%,
+during these crucial hours. Among private transportation users, 56% prefer cars, and 33% opt
+for motorcycles, amplifying the chaotic traffic situation on narrow roads (Keoh, N. N, 2023).
+USM’s Transport Engineering Assoc Prof Dr Nur Sabahiah Abdul Sukor emphasizes the
+severity of Penang's traffic challenges, asserting that the state is among those with the
+highest traffic rates in the country (Imran Hilmy, 2023).
+Foundations of Software Engineering Page 6
+Additionally, a commentary accentuates the importance of robust road infrastructure and an
+efficient public transport system. Addressing traffic problems is deemed crucial for
+improving various aspects of individuals' lives, ranging from effective time management to
+enhanced psychological well-being. Studies indicate that an efficient transport
+infrastructure contributes to happier workers, resulting in a significant 13% increase in
+productivity (Tan Chen Tat, 2020).
+In addressing the urgent transportation issues in Penang, "Heng Heng Traffic" stands out as a
+comprehensive and customized solution. By harnessing real-time data, the system not only
+optimizes traffic but also encourages carpooling while improving the efficiency of public
+transportation. The Real-Time Location Service (GPS) module ensures the safety and
+security of drivers through precise location tracking, identification of reckless driving, and
+facilitation of emergency assistance. The Carpooling System effectively reduces congestion
+with dynamic ride matching and continuous updates on traffic conditions. Managing traffic
+flow in real-time, the Dynamic Toll Price module offers personalized notifications, aiding
+informed decision-making for route planning. The Smart Traffic Monitoring System
+tackles traffic challenges through efficient data collection, optimization of traffic lights, and
+seamless integration with emergency responses. Additionally, the Connection with Public
+Transportation resolves issues by enabling notifications, special assistance requests, and live
+bus monitoring. Aligned with Sustainable Development Goal 11, this initiative strives to
+revolutionize urban transportation on Penang Island, emphasizing sustainability, efficiency,
+and safety.
+Foundations of Software Engineering Page 7
+1.2 Organization Background
+Our team, Heng Heng Traffic, is eager to present our innovative system to the Ministry of
+Transport of Malaysia (MOT). MOT oversees critical aspects of transportation, including
+road transport, civil aviation, road safety, among others. The mission of MOT aligns with our
+goal of developing a system that strengthens the transportation infrastructure through
+technology, serving as a catalyst for national development (official portal, 2023). We are open
+to a collaborative partnership with MOT or even considering the possibility of selling the
+system to contribute to the advancement of transportation in Malaysia.
+Our system brings substantial benefits to two key stakeholders such as residents and
+policymakers. Residents will experience significant advantages as the system incorporates
+real-time data analytics and innovative smart city solutions to enhance traffic
+management. This results in reduced congestion and improved mobility (UtiliseOne, 2023).
+The integration of Waze-like solutions, known for their efficiency, enhances the urban
+living experience by offering residents convenient and sustainable commuting alternatives.
+Policymakers, who play a pivotal role in shaping urban development, will receive a
+comprehensive toolkit from our proposed system. Then inclusion of dynamic toll pricing
+mechanisms and green light optimization empowers policymakers to implement measures
+that encourage sustainablen transportation choices. This aligns with broader objectives such
+as creating inclusive, safe, and sustainable cities, in accordance with SDG 11 (Heirul Kamel,
+2022). These elements present a holistic solution that benefits both residents and
+policymakers alike.
+Upon implementing our system, we anticipate addressing significant traffic challenges such
+as road accidents and congestion. Additionally, our system contributes to reducing air
+pollution by effectively controlling the emissions of carbon dioxide and carbon monoxide.
+Users also have the potential to generate side income through our system. In essence, our
+system provides a comprehensive alternative to address various transportation issues when
+implemented wisely and correctly.
+In conclusion, Heng Heng Traffic is committed to presenting a transformative solution to
+MOT, contributing to the advancement of transportation in Malaysia. The cited benefits for
+Foundations of Software Engineering Page 8
+residents and policymakers,coupled with the potential to address traffic problems and reduce
+environmental impact, underscore the comprehensive nature of our system. We look forward
+to the opportunity to collaborate and make a positive impact on the transportation
+landscape in Malaysia.
+Overall, The distinctive features of the proposed system rest in its advanced capabilities, with
+real-time data analytics as the cornerstone for informed decision-making. The integration of
+innovative smart city solutions, particularly leveraging Waze-like technologies, introduces
+efficiency, and convenience.
+Foundations of Software Engineering Page 9
+1.3 System overview
+1.3.1 System objectives
+- To enhance road safety, reducing the accident rate.
+- To provide a real-time tracking system, enabling users to plan their schedules wisely.
+- To create an environment where everyone will make full use of public transportation,
+reducing the number of vehicles.
+- To provide passengers or drivers with a safe platform, ensuring they can benefit from
+this platform.
+- To establish a system to control traffic lights, aiming to smoothen the flow of traffic.
+1.3.2 System module breakdown
+Figure 1 Figure of System Module Breakdown
+Foundations of Software Engineering Page 10
+1.4 Project Planning
+1.4.1 Project Team Introduction
+Figure 2 Group Photo
+Heng Heng right here! A group of people who don’t know what will happen at the end of the
+day but still choose to smile along the way.
+Foundations of Software Engineering Page 11
+Group Member Biography
+Figure 3 Hong Jinglong
+Hong Jinglong
+Hey there! I'm Jinglong, a seasoned project
+manager with a track record of leading
+cross-functional teams across different
+industries. I thrive on orchestrating complex
+projects and have a real knack for strategic
+planning, consistently delivering successful
+outcomes for my teams and stakeholders.
+How can I assist you today?
+Figure 4 Edwin Chia Yi Yang
+Edwin Chia Yi Yang
+Hey, I'm Edwin, a business analyst hooked
+on Monopoly and CashFlow. These games
+sharpen my money skills. Not toI've
+handled various projects before, so hit me
+up with your business idea—I can help
+fine-tune it!
+Figure 5 Eng Jun Xiang
+Eng Jun Xiang
+Hi, Jun Xiang here. I come from Bukit
+Mertajam, Penang. In this Heng Heng
+Traffic group , I’m a business analyst that
+controls all parts of the business project.
+My passion for solving traffic problems that
+happen around us. That was very disgusting
+to me. I hope everyone benefits through our
+system. Stay tuned!
+Foundations of Software Engineering Page 12
+Figure 6 Ong Hsien Hung
+Ong Hsien Hung
+Wassup, Hsien Hung here, I’m a dynamic
+software engineer at Heng Heng Traffic
+Group, and is known for my innovation and
+precision. With a keen analytical mind, I
+consistently ensure that projects align with
+specifications, showcasing my commitment
+to excellence. My passion for
+problem-solving and relentless pursuit of
+advancement highlight my visionary
+approach to software engineering.
+Figure 7 Ng Chen Yang
+Ng Chen Yang
+Hi, Chen Yang here. I come from Alor
+Setar, Kedah. I like to be involved in sports
+when I am free. I am a software engineer
+for a team. I hope that our project will make
+you find it informative and amazing.
+Table 1.1 Table of biography of group member
+Foundations of Software Engineering Page 13
+1.4.2 Project Team Involvement
+Project Team Involvement Agreement
+1. Method of meeting:
+No Method
+1 Virtual Meeting (Google Meet)
+2 Messaging via smartphone
+3 Physical meeting
+Table 1.2 Table of meeting’s method
+2. Meeting Attendance:
+No. Edwin Chia
+Yi Yang
+Hong JingLong Eng Jun Xiang Ong Hsien Hung Ng Chen Yang
+Meeting 1
+Meeting 2
+Meeting 3
+Meeting 4
+Meeting 5
+Foundations of Software Engineering Page 14
+Meeting 6
+Table 1.3 Table of attendance
+3. Running Meetings:
+Foundations of Software Engineering Page 15
+No Date Details
+Meeting
+18/10/2023
+Time: 9:00pm – 10:30pm
+Task: Discus virtually of the question’s structure and task
+allocation
+Location: Virtual (Google Meet)
+Picture: Photo
+Meeting 2
+20/10/2023
+Time: 1:00pm - 3:00pm
+Task: Discuss the details of the project and check
+prepared module and features
+Location: DKG 31
+Meeting 3
+25/10/2023
+Time: 5:00pm - 7:00pm
+Task: Final Checking of the module
+Location: Virtual (Google Meet)
+Meeting 4
+15/11/2023
+Time: 9:00pm – 10:30pm
+Task: Discus virtually of the question’s structure and task
+allocation
+Location: Virtual (Google Meet)
+Picture: Photo
+Meeting 5
+20/11/2023 Time: 6:30pm – 8:30pm
+Task: Discuss the details of the each features of every
+module
+Location: Subaidah at USM
+Meeting 6
+25/11/2023 Time: 6:30pm – 8:30pm
+Task: Finalize the details of the features and checking
+Location: Virtual (Google Meet)
+Picture: Photo
+Table 1.4 Table of scheduled meeting
+4. Division of Project Roles:
+Foundations of Software Engineering Page 16
+Role Name Job content
+Project Director Hong Jinglong Leading the team, I define our project's vision
+and ensure alignment with our goals. Facilitating
+communication and strategic decision-making, I
+oversee our project's progress
+Business Analyst Edwin Chia Yi Yang I specialize in gathering and analysing business
+requirements, researching information, and
+defining user stories for a user-friendly platform
+during the design phase.
+Eng Jun Xiang With a focus on information research, I analyse
+business requirements, define user stories, and
+prioritize features for a robust and user-centric
+system.
+Software Engineer Ng Chen Yang I’m one of the software engineers who analyze
+business requirements, define user stories, and
+prioritize features to ensure a robust and
+user-centric system.
+Ong Hsien Hung I’m a software engineer at Heng Heng Traffic. I
+collaborate with Chen Yang to gather business
+requirements, define user stories, and contribute
+insights for a user-friendly platform during the
+design phase. He ensures the system meets all
+requirements, preventing any lack of essential
+features.
+Table 1.5 Table of role of each member
+4. Division of Work:
+Module Person In Charge
+Car Built In Real Time Location Service (GPS) Eng Jun Xiang
+Carpooling System Hong Jinglong
+Dynamic Toll Price Edwin Chia Yi Yang
+Smart Traffic Monitoring Ong Hsien Hung
+Connection with Public Transportation Ng Chen Yang
+Table 1.6 Table of module for each member
+Foundations of Software Engineering Page 17
+2. System Requirements
+2.1 Functional requirements – User Stories
+2.1.1 Module 1: Car built in Real Time Location Service (GPS)
+TITLE: Track Accurate Location PRIORITY: 2
+As a driver,
+I want to know the accurate location of my vehicle,
+So that I can know the real-time location of my car through the system for security and
+convenience purposes.
+ACCEPTANCE CRITERIA:
+● Given an active GPS connection,
+● When I request my car's location,
+● Then
+○ The GPS system should provide the current and accurate location of my car.
+○ I can check the real-time location of his car for security purposes.
+Table 2.1.1 User story of tracking accurate location of vehicle (driver)
+TITLE: Reckless Driving Detection PRIORITY: 1
+As a driver,
+I want to monitor my behaviour for signs of reckless driving(eg: Over speeding).
+So that I can prevent reckless driving behaviour to minimize road accidents.
+ACCEPTANCE CRITERIA:
+● Given I have a reckless driving behaviour,
+● When the GPS system detects reckless driving patterns,
+● Then
+○ Appropriate alerts or actions will be done to notify me.
+○ Warning will be triggered if I still remain reckless driving.
+○ It will remain until the driver drives safely for safety purposes.
+Table 2.1.2 User story of detection of reckless drivers and giving them signals (driver)
+Foundations of Software Engineering Page 18
+TITLE: Request Rescue Assistance PRIORITY: 2
+As a driver,
+I want to be able to request rescue assistance through the GPS system.
+So that I can quickly and accurately communicate my location in case of an emergency.
+ACCEPTANCE CRITERIA:
+● Given an emergency situation,
+● When I activate the rescue request feature in the GPS system,
+● Then
+○ The system should alert emergency services.
+○ The system automatically provides the rescue team with my car's exact
+location.
+○ The recuse job will be done efficiently.
+Table 2.1.3 User story of driver can ask for rescue by providing the accurate location (driver)
+TITLE: Report Traffic Incidents PRIORITY: 3
+As a driver,
+I want to report traffic incidents or road hazards through the GPS system.
+So that I can contribute to improving the accuracy of traffic information for myself and
+others.
+ACCEPTANCE CRITERIA:
+● Given I am driving on the road,
+● When traffic incidents or road hazards happen.
+● Then
+○ I can report the traffic incidents about the situation through the system.
+○ Other road users can know the road situation on the time.
+○ Every road user can change the plan and do the action immediately.
+Table 2.1.4 User story of driver can report traffic incidents or road hazards to improve traffic
+information (driver)
+Foundations of Software Engineering Page 19
+TITLE: Law Enforcement PRIORITY: 2
+As the law enforcement officer,
+I want to access records from the GPS system to gather evidence for summoning reckless
+drivers.
+So that I can enforce traffic regulations and enhance road safety.
+ACCEPTANCE CRITERIA:
+● Given a request from law enforcement,
+● When accessing the GPS system records,
+● Then
+○ The system should provide relevant information, such as historical driving
+behaviour and location data for the enforcement agency.
+○ The record will be proof and issuance summonses for reckless driving
+violations.
+Table 2.1.5 User story of government agencies accessing records and giving summons for
+reckless drivers (law enforcement officers).
+TITLE: Traffic Flow Optimization PRIORITY: 2
+As the traffic management officer,
+I want to use data from the GPS system to optimize traffic flow.
+So that I can adjust signal timings and implement traffic
+ACCEPTANCE CRITERIA:
+● Given access to real-time traffic data from the GPS system,
+● When analysing traffic flow,
+● Then
+○ Traffic Management Center should adjust signal timings
+○ The Traffic Management Center should implement strategies to improve
+overall traffic efficiency.
+Foundations of Software Engineering Page 20
+Table 2.1.6 User story of government agencies accessing records and analysing traffic
+conditions (traffic management officer)
+2.1.2 Module 2: Carpooling System
+TITLE: Dynamic carpool matching PRIORITY: 1
+As a passenger or a driver,
+I want dynamically carpool matching based on route customization and preferences set
+before the ride.
+So that I can efficiently reach my destination while optimising for convenience and time.
+ACCEPTANCE CRITERIA:
+● Given I am logged into the system,
+● When I initiate a ride request and matching
+● Then
+○ The system should provide me with a list of dynamically matched rides
+that align to my destination and request.
+Table 2.2.1 User story of Dynamic Carpool Matching (Driver & Passenger)
+TITLE: View rating PRIORITY: 2
+As a passenger or a driver,
+I want to view the reputation or rating of other users and drivers.
+So that I can make an informed decision on whether or not to accept this ride.
+ACCEPTANCE CRITERIA:
+● Given I am logged into the system,
+● When I search for ride or encounter another drivers and user's profile,
+● Then
+○ The system should display their reputation or rating prominently,
+indicating their reliability or performance based on past interactions.
+Foundations of Software Engineering Page 21
+Table 2.2.2 User story of Viewing Rating (Driver & Passenger)
+TITLE: Request for emergency assistant PRIORITY: 1
+As a passenger or a driver,
+I want to access emergency assistance features during my ride.
+So that I can quickly contact emergency services or notify trusted contacts if unexpected
+situations arise.
+ACCEPTANCE CRITERIA:
+● Given I am on a ride using the carpool system
+● When I encounter an emergency or feel unsafe during the ride
+● Then
+○ The system should provide a prominently accessible emergency button
+within the app interface.
+Table 2.2.3 User story of Request for emergency assistant (Driver & Passenger)
+TITLE: Edit Route Information PRIORITY: 1
+As a passenger or a driver,
+I want to edit and customise my carpool details before initiating a ride within the system.
+So that I can personalize my experience and tailor the system to my needs.
+ACCEPTANCE CRITERIA:
+● Given I am logged into the system,
+● When I access the settings or route customization section,
+● Then
+○ The system should allow users to set route details such as route specified,
+desired arrival time, etc., to match them with compatible carpooling
+partners.
+Table 2.2.4 User story of Efit Route Information(Driver & Passenger)
+Foundations of Software Engineering Page 22
+TITLE: Edit Route Preference PRIORITY: 3
+As a passenger or a driver,
+I want to set a ride preference before initiating a carpool
+So that I can have a comfortable and personalised travel experience.
+ACCEPTANCE CRITERIA:
+● Given I am logged into the system,
+● When I set preferences such as gender, car temperature preference and music
+preference
+● Then
+○ The system should ensure these preferences are saved and considered for
+ride-matching.
+Table 2.2.5 User story of Edit Route Preference (Driver & Passenger)
+TITLE: Real-time traffic update PRIORITY: 1
+As a passenger or driver,
+I want to access real-time traffic updates and optimal route suggestions.
+So that I can efficiently navigate through traffic and save time during the carpool journey.
+ACCEPTANCE CRITERIA:
+● Given I am initiating or planning a carpool ride using the system
+● When I input the destination and set the carpool details
+● Then
+○ The system should integrate with GPS navigation software’s traffic data to
+retrieve real-time updates on traffic conditions along the route.
+Table 2.2.6 User story of Real-time Traffic Update (Driver & Passenger)
+Foundations of Software Engineering Page 23
+2.1.3 Module 3: Dynamic Toll Price
+TITLE: Real-Time Toll Prices PRIORITY: 1
+As a commuter using the "Heng Heng Traffic" app,
+I want to view real-time dynamic toll prices as I approach toll roads.
+So that I can plan my route effectively and save on transportation costs.
+ACCEPTANCE CRITERIA:
+● Given that I am using the "Heng Heng Traffic" app,
+● When I input my starting point and destination,
+● Then
+○ The app should promptly display real-time dynamic toll prices for that
+specific toll road.
+○ The app should suggest alternative routes considering toll prices and
+traffic conditions, updating this information promptly as toll prices change.
+Table 2.3.1 User story of real-time toll prices (commuter)
+TITLE: Dynamic Toll Pricing Adjustment PRIORITY: 1
+As a local government officer using "Heng Heng Traffic,"
+I want to modify dynamic toll pricing parameters.
+So that I can efficiently manage traffic flow by setting criteria based on factors like
+traffic volume or time of day.
+ACCEPTANCE CRITERIA:
+● Given administrative access within the "Heng Heng Traffic" system,
+● When I access the toll pricing settings,
+● Then
+○ I should be able to set criteria for dynamic toll pricing based on factors
+such as traffic volume, time of day, or other relevant parameters.
+○ The system should facilitate real-time modifications, offering flexibility to
+adapt to changing traffic conditions.
+Table 2.3.2 User story of dynamic toll pricing adjustment (local government officer)
+Foundations of Software Engineering Page 24
+TITLE: Historical Toll Price Data PRIORITY: 2
+As a toll analyst,
+I want to access historical toll price data.
+So that I can analyse trends and make informed decisions regarding future toll
+adjustments or infrastructure planning.
+ACCEPTANCE CRITERIA:
+● Given a database within the system,
+● When I request historical toll price data for specific time frames,
+● Then
+○ The system should provide comprehensive data records for analysis and
+decision-making purposes.
+Table 2.3.3 User story of historical toll price data (city planner)
+TITLE: Toll Price Prediction PRIORITY: 3
+As a commuter,
+I want to know predicted toll prices for specific times and days.
+So that I can plan my journeys in advance and anticipate potential cost fluctuations.
+ACCEPTANCE CRITERIA:
+● Given that I use the app and it has access to historical toll price data and traffic
+patterns,
+● When I input date and time information for a future journey,
+● Then
+○ The system should provide estimated toll prices based on historical data
+and traffic patterns.
+Table 2.3.4 User story of toll price prediction (commuter)
+Foundations of Software Engineering Page 25
+TITLE: Customised Toll Notifications PRIORITY: 3
+As a commuter,
+I want to receive personalised notifications regarding toll price changes on my preferred
+routes.
+So that I can make informed decisions and plan my travels efficiently.
+ACCEPTANCE CRITERIA:
+● Given user preferences stored in the system,
+● When toll prices change on frequently used routes,
+● Then
+○ I receive notifications via the mobile app or email, allowing them to stay
+informed and adjust their plans accordingly.
+Table 2.3.5 User story of customised toll notifications (commuter)
+Foundations of Software Engineering Page 26
+2.1.4 Module 4: Smart Traffic Monitoring
+TITLE: Real-time Traffic Data Collection PRIORITY: 1
+As a traffic officer,
+I want to effortlessly gather up-to-the-minute traffic data,
+So that I can swiftly adjust traffic signals based on current conditions.
+ACCEPTANCE CRITERIA:
+● Given that the smart traffic system is operational,
+● When I trigger data collection in the Smart Traffic system,
+● Then
+○ I should be able to view real-time traffic data on a user-friendly interface.
+○ The system should capture and update traffic information every minute
+seamlessly.
+Table 2.4.1 User story of real-time traffic data collection (traffic officer)
+TITLE: Traffic Light Optimization PRIORITY: 1
+As a traffic officer,
+I want to easily fine-tune traffic light timings using real-time data,
+So that I can enhance traffic flow and minimize congestion.
+ACCEPTANCE CRITERIA:
+● Given the real-time traffic data is available,
+● When I input current traffic data into the Smart Traffic system,
+● Then
+○ The system should provide clear, actionable recommendations for optimal
+traffic light durations.
+○ Recommendations should align effectively with the actual traffic
+conditions.
+Table 2.4.2 User story of traffic light optimization (traffic officer)
+Foundations of Software Engineering Page 27
+TITLE: Emergency Response Integration PRIORITY: 2
+As an emergency response coordinator,
+I want to prioritize emergency vehicles during emergencies by using Smart Traffic
+system,
+So that I can ensure swift and secure passage for emergency services.
+ACCEPTANCE CRITERIA:
+● Given an emergency situation is detected,
+● When emergency vehicles are approaching an intersection,
+● Then
+○ The system should promptly adjust traffic lights to prioritize the passage
+of emergency vehicles.
+○ Traffic lights should adapt quickly, ensuring a smooth passage for
+emergency vehicles.
+Table 2.4.3 User story of emergency response integration (emergency response coordinators)
+TITLE: Historical Data Analysis PRIORITY: 2
+As a traffic analyst,
+I want to effortlessly analyze historical traffic data,
+So that I can identify patterns and trends for informed future planning.
+ACCEPTANCE CRITERIA:
+● Given the Smart Traffic system has collected historical data,
+● When I request a historical data analysis,
+● Then
+○ The system should present visualizations and insights into traffic patterns
+over specified time periods.
+○ Generated insights should contribute effectively to decision-making.
+Table 2.4.4 User story of historical data analysis (traffic analyst)
+Foundations of Software Engineering Page 28
+TITLE: User Alerts and Notifications PRIORITY: 3
+As a traffic officer,
+I want to receive alerts and notifications for critical traffic events,
+So that I can proactively address potential issues.
+ACCEPTANCE CRITERIA:
+● Given the Smart Traffic system is monitoring real-time data,
+● When the system identifies a critical traffic event (e.g., accidents, road closures),
+● Then
+○ The system should immediately send user-friendly alerts and notifications
+to relevant authorities.
+○ Alerts should be timely and easy to understand.
+Table 2.4.5 User story of alerts and notifications (user)
+TITLE: On-the-Go Traffic Monitoring Adjustments PRIORITY: 3
+As a traffic officer,
+I want to access the Smart Traffic system effortlessly on my mobile device,
+So that I can quickly monitor traffic and make informed decisions on the field.
+ACCEPTANCE CRITERIA:
+● Given the Smart Traffic system is operational,
+● When accessed through a mobile device,
+● Then
+○ The system should provide an intuitive interface with real-time traffic
+updates.
+○ Mobile access should allow for quick and effective decision-making on
+the field with minimal effort.
+Table 2.4.6 User story of mobile access for on-the-go monitoring (traffic officer)
+Foundations of Software Engineering Page 29
+2.1.5 Module 5: Connection with public transportation
+TITLE: Sending notification to driver PRIORITY: 2
+As a public bus user,
+I want to send a notification to the driver when I'm waiting at a specific bus stop
+So that the driver is aware of my presence.
+ACCEPTANCE CRITERIA:
+● Given that I am at a bus stop,
+● When I press a button in order to send a notification via the app
+● Then
+o The electronic dashboard in the bus will pop out a message for the
+driver
+Table 2.5.1 User story of sending notification to driver (user)
+TITLE: Request Special Assistance PRIORITY: 2
+As a passenger with specific needs,
+I want to request special assistance, such as wheelchair accessibility or priority
+seating
+So that I can have a comfortable and accessible journey.
+ACCEPTANCE CRITERIA:
+● Given that the driver is aware of special requirement from users
+● When I request it through the app
+● Then n
+o The driver acknowledges and accommodates my request once he
+arrive at the bus stop
+Table 2.5.2 User story of Request Special Assistance (user)
+Foundations of Software Engineering Page 30
+TITLE: Enable Real-Time Monitoring of Bus Location PRIORITY: 3
+As a bus user,
+I want to have access to real-time updates on the location of my bus
+So that I can plan my journey more effectively.
+ACCEPTANCE CRITERIA:
+● Given that I have opened the app,
+● When I key in certain location or bus,
+● Then
+o I receive accurate and timely information about the current location of the
+bus I am waiting for.
+Table 2.5.3 User story of Enable Real-Time Monitoring of Bus Location (user)
+TITLE: Purchased Digital Tickets PRIORITY: 1
+As a bus user,
+I want to purchase and display digital tickets directly within the app
+So that I can make full use of the e-wallet and make the process of boarding the bus
+faster.
+ACCEPTANCE CRITERIA:
+● Given that I want to board the bus
+● When I purchase a ticket through the app
+● Then
+o A digital ticket is generated and displayed for later use.
+Foundations of Software Engineering Page 31
+Table 2.5.4 User story of Purchase and Display Digital Tickets (user)
+TITLE: Access Offline Bus Information PRIORITY: 2
+As a bus user with intermittent internet connectivity,
+I want to access essential features such as bus schedules and route information when I loss
+my connection
+So that I can plan my schedule even in areas with poor connectivity.
+ACCEPTANCE CRITERIA:
+● Given that I am in an area with poor connectivity
+● When I access the app,
+● Then
+o I can view essential bus information offline
+Table 2.5.5 User story of Access Offline Bus Informations (driver)
+TITLE: Receive Passenger Notifications PRIORITY: 1
+As a bus driver,
+I want to receive notifications when passengers are waiting at a specific bus stop
+So that I can efficiently plan stops and I will not miss any of my passengers, which will
+cause any dissatisfaction.
+ACCEPTANCE CRITERIA:
+● Given that I am driving a bus,
+● When a passenger sends a notification through the app
+● Then
+o I receive a notification indicating their presence at a specific bus stop
+Table 2.5.6 User story of Receive Passenger Notifications (driver)
+Foundations of Software Engineering Page 32
+2.2 Functional requirements – Use Cases
+2.2.1 Use Case list
+Module 1: Car built in real time location service (GPS)
+Module Use Case ID Use Case Name Description
+Car built in
+Real Time
+Location
+Service(GPS)
+GPS001 Know Accurate
+Location
+Driver knows the accurate location
+of my car by keeping track of its
+whereabouts for security purposes.
+GPS002 Reckless Driving
+Detection
+Drivers receive appropriate alerts
+for reckless driving behaviour
+detected.
+GPS003 Request Rescue
+Assistance
+Driver request rescue assistance
+through the system communicate
+my location quickly and accurately
+GPS004 Report Traffic
+Incidents
+Drivers report traffic incidents or
+road hazards through the GPS
+system to improve the accuracy of
+traffic information.
+GPS005 Law Enforcement
+by Summoning
+Reckless Drivers
+Government agencies access
+records from the GPS system to
+gather evidence for summoning
+reckless drivers.
+GPS006 Traffic flow
+Optimization.
+Government agencies can use the
+system system to analyse traffic
+flow.
+Table 2.6.1 Table of use case list for Module 1
+Foundations of Software Engineering Page 33
+Module 2: Carpooling System
+Module Use Case ID Use Case Name Description
+Carpooling
+System
+CS001 Dynamic carpool
+matching
+Passengers and drivers can
+choose the ride that best suits their
+needs.
+CS002 View rating Passengers and drivers are
+allowed to view others passengers
+or driver’s ratings before they
+accept the ride offer.
+CS003 Request for
+emergency
+assistant
+Passengers and drivers can
+access emergency assistance
+features during a ride through the
+application interface in case of an
+emergency such as accidents,
+robbery, etc..
+CS004 Edit Route
+Information
+Passengers and drivers can enter
+and edit the route information such
+as the destination, the route,
+desired time of arrival, etc.
+CS005 Edit Route
+Preference
+Passengers and drivers are
+allowed to choose their preference
+of various aspects such as driver or
+passenger’s gender and number.
+CS006 Real-time traffic
+update
+Passengers and drivers can view
+the real-time traffic updates along
+the journey.
+Foundations of Software Engineering Page 34
+Table 2.6.2 Table of use case list for Module 2
+Module 3: Dynamic Toll Price
+Module Use Case ID Use Case Name Description
+Dynamic Toll
+Prices
+DTP001 Adjust Dynamic Toll
+Pricing
+Local government
+officers adjust toll prices
+in real-time based on
+traffic conditions like
+volume and time of day.
+DTP002 Access Historical
+Toll Data
+Toll analysts analyse past
+toll prices from the
+system for future
+decisions on toll changes
+or infrastructure plans.
+DTP003 View Real-Time Toll
+Prices
+Commuters see live toll
+prices on the app as they
+approach toll roads,
+suggesting alternative
+routes based on tolls and
+traffic.
+DTP004 View Predicted Toll
+Prices
+Commuters get
+estimated future toll
+prices by entering date
+and time in the app using
+past toll data and traffic
+patterns.
+Foundations of Software Engineering Page 35
+DTP005 Receive Customised
+Toll Notifications
+Commuters receive
+personalised alerts via the
+app/email when toll
+prices change on their
+preferred routes.
+Table 2.6.3 Table of use case list for Module 3
+Module 4: Smart Traffic Monitoring
+Module Use Case ID Use Case Name Description
+Smart Traffic
+Monitoring
+System
+SMU001 Real-time
+Traffic Data
+Collection
+Traffic officers initiate real-time
+data collection, allowing the Smart
+Traffic system to capture and
+update traffic information every
+minute for informed
+decision-making.
+SMU002 Traffic Light
+Optimization
+Traffic Officers input current
+traffic data, and the system
+calculates and recommends
+optimal traffic light durations,
+enhancing traffic flow and
+reducing congestion.
+SMU003 Emergency
+Response
+Integration
+During emergencies, the
+Emergency Response
+Coordinator triggers automatic
+adjustments in traffic lights,
+Foundations of Software Engineering Page 36
+prioritizing the passage of
+emergency vehicles.
+SMU004 Historical Data
+Analysis
+The Traffic Analyst requests and
+receives visualizations and insights
+from the system regarding
+historical traffic data, aiding in
+identifying patterns and trends.
+SMU005 User Alerts and
+Notifications
+The system monitors real-time data
+and sends immediate alerts and
+notifications to relevant authorities,
+including Traffic Officers, in the
+event of critical traffic events.
+SMU006 On-the-Go
+Traffic
+Monitoring
+Adjustments
+Traffic officers access the Smart
+Traffic system on their mobile
+devices for on-the-go monitoring,
+allowing quick decision-making
+and adjustments based on real-time
+traffic conditions.
+Table 2.6.4 Table of use case list for Module 4
+Foundations of Software Engineering Page 37
+Module 5: Connection with public transportation
+Module Use Case ID Use Case Name Description
+Connection
+with public
+transportation
+CPD001 Sending notification
+to driver
+Passengers send
+notifications to the driver
+for real-time
+communication during
+the journey. The
+notification will be
+facilitated by the system.
+CPD002 Request Special
+Assistance
+Passengers request
+special assistance. The
+system processes requests
+to ensure a comfortable
+and tailored journey.
+CPD003 Enable Real-Time
+Monitoring
+Passengers gain access to
+real-time monitoring
+features, allowing them to
+track and view live
+updates and status
+information during their
+journey.
+CPD004 Purchase Digital
+Tickets
+Passengers digitally
+purchase and display
+Foundations of Software Engineering Page 38
+tickets. The system
+processes transactions for
+a seamless journey
+experience.
+CPD005 Access Offline Bus
+Information
+Passengers access
+essential bus details
+offline, ensuring
+availability without the
+internet. The system
+guarantees a reliable
+offline experience.
+CPD006 Receive Passenger
+Notifications
+Driver gets notification
+from the passenger. The
+system will update the
+notification in the
+electrical dashboard of
+the bus.
+Table 2.6.5 Table of use case list for Module 5
+Foundations of Software Engineering Page 39
+2.2.2 Use case diagram
+Module 1:Real time location service system (GPS)
+Figure 8: Use Case Diagram of Module 1- Real time location service system (GPS)
+Foundations of Software Engineering Page 40
+Module 2: Carpooling System
+Figure 9: Use Case Diagram of Module 2- Carpooling System
+Foundations of Software Engineering Page 41
+Module 3: Dynamic Toll Price
+Figure 10: Use Case Diagram of Module 3- Dynamic Toll Price System
+Foundations of Software Engineering Page 42
+Module 4: Smart Traffic Monitoring
+Figure 11: Use Case Diagram of Module 4: Smart Traffic Monitoring
+Foundations of Software Engineering Page 43
+Module 5: Connection with public transportation
+Figure 12: Use Case Diagram of Module 5: System of Connection with Public
+Transportation
+Foundations of Software Engineering Page 44
+2.3 Non-functional requirements
+1. Performance:
+The system must ensure low latency and high responsiveness across all its components.
+Real-time location services need to provide near-instantaneous updates on vehicle positions
+to support carpooling and traffic management. The carpooling system should offer quick
+matching of ride-sharing partners. Dynamic toll pricing should calculate and apply fees
+swiftly based on traffic conditions. Smart traffic monitoring requires fast data processing to
+provide up-to-the-minute insights. Integration with public transportation must facilitate
+seamless transfers and real-time information updates. Additionally, the system should scale
+efficiently to handle increased user load during peak traffic times. Performance benchmarks
+and response time thresholds need to be defined and consistently met to ensure a smooth user
+experience.
+2. Reliability:
+The system must be highly available and resilient. Downtime in any of its components, such
+as real-time location services or traffic monitoring, could have severe consequences.
+Redundancy and failover mechanisms should be in place to minimise service interruptions.
+Data integrity and consistency are paramount, particularly in the dynamic toll pricing
+component, where financial transactions occur. Moreover, the system must be robust in
+handling unexpected situations, such as network disruptions or system failures, to avoid
+compromising user safety and the efficiency of traffic management. Regular testing and
+monitoring, along with backup systems, should ensure the reliability and availability of the
+entire ecosystem.
+3.Security:
+The system must prioritize the safeguarding of data integrity, confidentiality, and availability.
+This involves implementing robust measures such as encryption for data protection during
+transmission and storage. Access controls should be stringent, ensuring only authorized users
+can access sensitive functionalities and information. Authentication mechanisms must be
+strong, employing multi-factor authentication where applicable to fortify user verification.
+Foundations of Software Engineering Page 45
+4. Scalability:
+The system should exhibit the capability to efficiently handle increased loads and user
+demands without compromising performance or functionality. This includes the ability to
+seamlessly accommodate growing data volumes, traffic data, and transactional throughput.
+The system's architecture should be designed in a manner that allows for easy expansion of
+resources, such as processing power, memory, or storage, to meet evolving needs without
+significant disruptions or degradation in performance.
+5. Acceptability:
+The software must prioritise understandability and usability, aiming to create a system that
+ensures ease of use and minimises user errors. Upon registration, users should undergo a
+straightforward tutorial session to familiarize themselves with the system's functions. This
+training should equip them with proficiency in utilizing the system's features, promoting
+efficient and error-free usage thereafter.
+Foundations of Software Engineering Page 46
+3. System Architecture and Design
+3.1 Architectural design
+3.1.1 Conceptual view
+Figure 13: Conceptual View of The System
+The Heng Heng System harmonizes five key modules: GPS for real-time navigation,
+carpooling for sustainable ride-sharing, toll pricing for optimized cost-effective travel, traffic
+monitoring for congestion analysis, and public transport integration for enhanced transit
+services. Designed for both drivers and administrators, this conceptual framework strives to
+create a seamless urban transportation experience by improving efficiency, reducing
+congestion, and promoting sustainable travel practices.
+Foundations of Software Engineering Page 47
+3.1.2 Process view
+Module 1: Real time location service (GPS)
+Figure 14: Process View of Real time Location Service Module (GPS)
+Driver
+As a driver, when I was logged into the dashboard, there were 4 features for me to select.
+Firstly I can get a notice when I was driving recklessly without obeying the rules such as over
+speeding. When the system detects I was driving recklessly, it will pop up a warning for me.
+Once I received the warning, I must change my driving behaviour. If not, the system will
+report to the government agencies for further action.
+Secondly , as a driver I can report traffic accidents that happen on the road by key in all the
+information that occurs such as which type of accident happened and what is the degree of
+accident. Then, the system will upload to the database and every user will know what
+Foundations of Software Engineering Page 48
+happened on the road. The data will also be sent to adminstaters for further adjustment for the
+traffic.
+Thirdly, I can ask for rescue when I am faced with an emergency situation. By pressing an
+emergency button. The system will auto send an accurate location to the rescue team, then
+they will know the exact location to increase rescue efficiency.
+Lastly, I can track the location of my own car. In the dashboard , I can choose whether I want
+to know the historical location or the real time location. By knowing the location of my own
+vehicle, it will increase car security.
+Officer
+As an officer, I can optimise the traffic conditions using the system. When I log in into the
+system, I can choose which traffic light that I can optimise. By monitoring the road condition,
+I can adjust the timing of traffic lights by increasing the timing when there is a jam.
+Otherwise, I can use the system to have law enforcement. When I login to the account, I can
+check whether the driver does not have good driving behaviour,a compound or summon can
+be given to the driver.
+Foundations of Software Engineering Page 49
+Module 2: Carpooling System
+Foundations of Software Engineering Page 50
+Figure 15: Process View of Carpooling System
+Passenger
+When logged in as a passenger, the passenger can access the passenger dashboard and modify
+the route information such as the pickup location, desired time of arrival, etc. After this,
+passengers can also choose to modify the preference for the ride such as gender of driver,
+vehicle type and so on. The search results to be displayed. The passenger may view the
+ratings and basic information of the driver or other passengers in a particular carpool to
+choose the desired carpool to join. After a particular carpool is selected, a carpool request
+will be sent to the driver and other passengers in the car. If all members in the carpool agree
+to the request, then matching is a success. If not, the user needs to search for another ride.
+After a successful matching, as a passenger, they can choose to view the real time location of
+the driver in map view when waiting and also check the real time location of the car after the
+passengers are being fetched. The passengers can also request the emergency assistant such
+as access the emergency contact set before the ride by clicking a button on the screen in the
+case of emergency or danger. The passenger can also check for the carpool request and view
+the ratings of the other passenger before they decide to accept or reject the request.
+Driver
+When logged in as a driver, the driver will have to edit the driver route information such as
+the initial and final destination, followed by the preference edit like gender requirements,
+number of seats available and car model. When the required and optional information is
+entered, the route will be posted. After the route is posted, if the route is selected by a
+passenger, the driver will be notified to respond to the match, which is to accept or reject. If
+the matching is mutual on both sides, then the matching process is successful.
+As a driver, he can choose to check for the efficient route suggested by the GPS navigation
+software during the trip. The driver can also request the emergency assistant such as access
+the emergency contact set before the ride by clicking a button on the screen in the case of
+Foundations of Software Engineering Page 51
+emergency or danger. The driver can also check for the carpool request and view the ratings
+of the other passenger before he decides to accept or reject the request.
+Foundations of Software Engineering Page 52
+Module 3: Dynamic Toll Price
+Figure 16: Process View of Dynamic Toll Price Module
+Foundations of Software Engineering Page 53
+Commuter
+View Real-Time Toll Prices or Future Toll Price:
+Commuters input their trip details to access real-time toll prices and future toll estimates
+based on specified dates and times. The system promptly displays toll rates for intended
+routes, continuously updating these prices and suggesting alternative routes based on toll
+prices and traffic conditions. This empowers commuters to make cost-efficient and
+well-informed route decisions.
+Preference Notification System:
+Commuters personalise notification preferences by specifying preferred routes. They receive
+timely updates on toll rate changes along these routes. This feature aids commuters in making
+informed route selections, enhancing their travel planning strategies.
+Toll Analyst
+Request Historical Toll Data:
+The Toll Analyst interacts with the system, seeking precise historical toll price data within
+defined time frames.
+Analyse Historical Data:
+Upon acquisition of the historical toll price data, the analyst scrutinises trends, patterns, and
+fluctuations in toll rates. This analysis forms the basis for informed decisions on future toll
+adjustments or infrastructure planning.
+Local Government Officer
+Access Toll Pricing Setting:
+The Local Government Officer utilises administrative controls to access and modify dynamic
+toll pricing settings within the system.
+Modify Dynamic Toll Parameters:
+Using the toll pricing settings, the officer adeptly adjusts factors such as traffic volume, time
+of day, and other pertinent parameters. These modifications enable real-time adaptability to
+changing traffic conditions, facilitating efficient traffic flow management within the
+transportation network.
+Foundations of Software Engineering Page 54
+Module 4: Smart Traffic Monitoring System
+Foundations of Software Engineering Page 55
+Figure 17: Process View of Smart Traffic Monitoring System
+Traffic Officer
+During the traffic, the Traffic Officer initiates their tasks by logging into the Traffic
+Management System. They can choose between two primary tasks: Real-Time Traffic Data
+Analysis or User Alerts and Notifications. In the Real-Time Traffic Data Analysis path, they
+input current traffic data, receive recommendations or perform manual analysis, and make
+decisions to adjust traffic light timings accordingly. Alternatively, if they opt for User Alerts
+and Notifications, they continuously monitor real-time alerts and respond as needed. After
+completing their tasks, the officer logs out and documents the actions taken.
+Traffic Analyst
+The Traffic Analyst, upon logging into the system, decides between two analysis types:
+Real-Time Traffic Data Analysis or Historical Data Analysis. In the Real-Time Analysis path,
+they input parameters, analyze data, review recommendations or conduct manual analysis,
+and make decisions based on insights. In the Historical Data Analysis path, they specify the
+time range, analyze data, and review insights. If further exploration is needed, detailed
+insights can be generated. The analyst finalizes the analysis and shares insights with relevant
+stakeholders.
+Emergency Response Coordinator
+The Emergency Response Coordinator continuously monitors for emergency situations. Upon
+detecting an emergency, they initiate multiple actions, including alerting emergency services
+and promptly adjusting traffic lights to prioritize emergency vehicle passage. Depending on
+the situation, they may coordinate with law enforcement and clear traffic routes for
+emergency vehicles. The coordinator closely monitors the progress of emergency response
+actions. Once the emergency is resolved, they restore normal traffic operations and document
+the actions taken during the response.
+Foundations of Software Engineering Page 56
+Module 5: Connection with Public Transportation
+Figure 18: Process View of Connection with Public Transportation Module
+Foundations of Software Engineering Page 57
+Passenger
+When logged in as a passenger, users have two options based on their internet connection. If
+there is no internet connection, they can access the bus schedule. Otherwise, they can input
+their desired destination to check the real-time bus location. Following that, they can
+purchase a digital ticket and input any special requirements they may have. After completing
+all the processes, passengers can notify the driver to ensure they are not missed. Upon the
+bus's arrival, passengers need only to show the purchased digital ticket, saving a significant
+amount of time compared to purchasing a ticket directly from the bus driver. Eventually,
+users can successfully board the bus.
+Driver
+When logged in as a driver, drivers operate the bus as usual. An electrical dashboard in the
+bus displays any notifications sent by passengers. When a notification appears, the driver
+pays more attention to the upcoming bus stop. If not, the driver will continue driving. Upon
+reaching the bus stop, the electrical dashboard indicates if any special assistance is required
+by the passenger, prompting the driver to take any necessary steps to assist them. This
+ensures that passengers are picked up successfully.
+Foundations of Software Engineering Page 58
+References
+De Kuyer, M. (2023, November 1). Challenges Faced by Malaysia's Public
+TransportationSystem. LinkedIn.
+https://www.linkedin.com/pulse/challenges-faced-malaysias-public-transportation-sys
+tem-de-kuyer-3tl5c/
+Hilmy, I. (2023, March 15). Slow shift to mass transit. Metro News.
+https://www.thestar.com.my/metro/metro-news/2023/03/15/slow-shift-to-mass-transit
+Keoh, N. N. (2022, November 30). Traffic congestion on Penang Island is getting
+worse. Focus Malaysia.
+https://www.focusmalaysia.my/opinion/traffic-congestion-on-penang-island-is-getting
+-worse/
+Opinion | Car pooling is an idea in need of regulatory intervention. (2019, July 24).
+Mint.
+https://www.livemint.com/opinion/columns/opinion-car-pooling-is-an-idea-in-need-of
+-regulatory-intervention-1563966904467.html
+Our World in Data team. (2023). Make cities inclusive, safe, resilient and sustainable.
+Our World in Data. https://ourworldindata.org/sdgs/sustainable-cities
+Swami, H., Bari, C., & Dhamaniya, A. (2021). Developing Policy Framework of
+Dynamic Toll Pricing in India. Transportation Research Procedia, 52, 605–612.
+https://doi.org/10.1016/j.trpro.2021.01.072
+Tan Chen Tat. (2020, February 19). The effects of traffic congestion. Malay Mail.
+https://www.malaymail.com/news/what-you-think/2020/02/19/the-effects-of-traffic%
+09congestion-tan-chen-tat/1839052#google_vignette
+Foundations of Software Engineering Page 59
+UtiliseOne. (2023, November 28). The Power of Data Analytics in Engineering for
+Smart Cities.
+https://utilitiesone.com/the-power-of-data-analytics-in-engineering-for-smart-cities
+Works Minister Mulls On Dynamic Toll Pricing Implementation On Malaysian Highways -
+Lowyat.NET. (2022, November 4).
+https://www.lowyat.net/2022/288095/works-minister-mulls-on-dynamic-toll-pricing-i
+mplementation-for-malaysian-highways/#:~:text=The%20system%20is%20said%20t
+o
+Foundations of Software Engineering Page 60
