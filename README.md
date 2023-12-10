@@ -14,5 +14,5 @@
 
 # Project Title: Converter
 
-## Link of game demo video: [Group_1 Demo Video](https://youtu.be/wzFANjqGJAo)
+## Link of demo video: [Group_03 Demo Video](https://youtu.be/wzFANjqGJAo)
 
