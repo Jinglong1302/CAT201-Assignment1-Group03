@@ -1,11 +1,13 @@
-# Hackathon2 Group 1
+# CAT201 Assigment 1 Group 03
 
 # Members :
+> Ang Chin Zhen
+>
 > Edwin Chia Yi Yang
 > 
-> Eng Jun Xiang
-> 
-> Goh Jia Wei
+> Hong JingLong
+>
+> Ong Hsien Hung
 > 
 ---
 
