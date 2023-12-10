@@ -25,7 +25,6 @@ The converter has two operations, converting PDF files to txt files or convertin
 In the footer of the main page, there is an "About us" which the user can get to know the web developers.
 
 
-
 ![Picture2](https://github.com/Jinglong1302/CAT201-Assignment1-Group03/assets/116943589/6b165265-527b-49bd-93dd-be7f9f522e07)
 
 The image above shows background and name of developers.
